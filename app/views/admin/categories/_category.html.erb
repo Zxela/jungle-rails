@@ -1,0 +1,6 @@
+<tr>
+  <td>
+    <h4 class="float-left"><%= category.name %></h4>
+   <div class="delete-me"><%= link_to fa_icon('trash'), [:admin, category], class: 'btn btn-sm btn-danger float-right', method: :delete, data: { confirm: "Are you sure?" } %></div>
+  </td>
+</tr>
