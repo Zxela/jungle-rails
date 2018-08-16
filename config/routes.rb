@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
   resources :orders, only: [:create, :show]
 
-  resource :session, only [:create, :delete]
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
   get '/login' => 'sessions#new'
 
   get '/signup' => 'users#new'
