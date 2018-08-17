@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to '/login', notice: 'You have been logged out'
+    redirect_to '/', notice: 'You have been logged out'
   end
 
 end
