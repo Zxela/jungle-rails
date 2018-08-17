@@ -132,5 +132,47 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## REVIEWS
+
+Review.destroy_all
+prod1 = Product.find(1)
+prod2 = Product.find(2)
+prod3 = Product.find(3)
+prod4 = Product.find(4)
+ 
+prod1.reviews.create!({
+  product: prod1,
+  description: Faker::Hipster.paragraph(4),
+  user_id: 1,
+  rating: 4
+  })
+  prod1.reviews.create!({
+    product: prod1,
+    description: Faker::Hipster.paragraph(4),
+    user_id: 1,
+    rating: 4
+    })
+prod2.reviews.create!({
+  product_id: prod2,
+  description: Faker::Hipster.paragraph(4),
+  user_id: 2,
+  rating: 3
+  })
+
+prod3.reviews.create!({
+  product: prod3,
+  description: Faker::Hipster.paragraph(4),
+  user_id: 1,
+  rating: 2
+  })
+
+prod4.reviews.create!({
+  product: prod4,
+  description: Faker::Hipster.paragraph(4),
+  user_id: 2,
+  rating: 1
+  })
+
+
 
 puts "DONE!"
