@@ -23,17 +23,22 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
-        <dt>Reviews</dt>
-      <form> 
-        <%= form_for ([@product, @product.reviews.build]) do |form| %>
-        <%= form.label :description %>
-        <%= form.text_field :description, class: 'form-control' %>
-        
-        <%= form.submit %>
+        <h3>Reviews</h3>
+      <div class="form-group"> 
+        <% if current_user %>
+          <%= form_for [@product, @review] do |form| %>
+            <%= form.text_field :description, class: 'form-control' %>
+            <br>
+            <%= form.label :rating %>
+            <%= form.select :rating, [1,2,3,4,5], :prompt => 'Rate me!', class: 'form-control' %>
+            <%= form.submit %>
+          <% end %>
+          <% else %>
+        <p>You must log in before you can add a review!</p>
         <% end %>
-        </form>
+        </div>
        <dd>
-          <% @product.reviews.each do |review| %>
+          <% @product.reviews.order('updated_at DESC').each do |review| %>
             <%= render partial: 'products/review', locals: { review:review }  %>
           <% end %>          
        </dd>
