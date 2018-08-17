@@ -146,16 +146,16 @@ prod1.reviews.create!({
   user_id: 1,
   rating: 4
   })
-  prod1.reviews.create!({
-    product: prod1,
-    description: Faker::Hipster.paragraph(4),
-    user_id: 1,
-    rating: 4
-    })
+prod1.reviews.create!({
+  product: prod1,
+  description: Faker::Hipster.paragraph(4),
+  user_id: 1,
+  rating: 4
+  })
 prod2.reviews.create!({
   product_id: prod2,
   description: Faker::Hipster.paragraph(4),
-  user_id: 2,
+  user_id: 1,
   rating: 3
   })
 
@@ -169,7 +169,7 @@ prod3.reviews.create!({
 prod4.reviews.create!({
   product: prod4,
   description: Faker::Hipster.paragraph(4),
-  user_id: 2,
+  user_id: 1,
   rating: 1
   })
 
