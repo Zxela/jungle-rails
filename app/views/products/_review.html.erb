@@ -1,32 +1,31 @@
-  <table class="table table-bordered">
+<table class="table table-bordered">
   <thead>
-  <th colspan = 4>
-      <h4><%= review.user.name %></h4><%if current_user && current_user == review.user %>
-     <%= link_to fa_icon('trash'), product_review_path(:id => review.id, :product_id => review.product_id, :action => :destroy), class: 'btn btn-sm btn-danger delete-me', :method => :delete %>
-    <% end %>
-      </th>
-      <tr>
+    <th colspan = 4>
+      <h4><%= review.user.name %></h4>
+      <%if current_user && current_user == review.user %>
+        <%= link_to fa_icon('trash'), product_review_path(:id => review.id, :product_id => review.product_id, :action => :destroy), class: 'btn btn-sm btn-danger delete-me', :method => :delete %>
+      <% end %>
+    </th>
+    <tr>
       <td colspan = 4><span class='font-weight-bold'>Date of Review: </span><%= review.updated_at.to_formatted_s(:short)    %></td>
     </tr>
     <% if review.rating %>
-    <tr>
-         <td>
-      <span class='font-weight-bold'>Rating:</span> 
-      <% review.rating.times do |i| %>
-      <%= fa_icon "star" %>
-      <% end %>
-     
-    </td>
-    </tr>
+      <tr>
+        <td>
+        <span class='font-weight-bold'>Rating:</span> 
+        <% review.rating.times do |i| %>
+        <%= fa_icon "star" %>
+        <% end %>
+        </td>
+      </tr>
     <% end %>
   </thead>  
   <tbody>
-  <tr>
-    <td>
-    <span class='font-weight-bold'>Review:</span>
+    <tr>
+      <td>
+      <span class='font-weight-bold'>Review:</span>
       <%= review.description %>
-    </td>
-
-  </tr>
+      </td>
+    </tr>
   </tbody>
-  </table>
+</table>

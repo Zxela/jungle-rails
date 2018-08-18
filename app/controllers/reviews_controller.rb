@@ -19,6 +19,10 @@ class ReviewsController < ApplicationController
     redirect_to :back
   end
 
+  def average_rating
+    @review.ratings.average
+  end
+
   private
 
   def review_params

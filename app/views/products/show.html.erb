@@ -13,6 +13,7 @@
       </div>
 
       <div class="col-sm-8">
+
         <dl class="dl-horizontal">
           <dt>Name</dt>
           <dd><%= @product.name %></dd>
@@ -23,27 +24,39 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
+        
         <h3>Reviews</h3>
-      <div class="form-group"> 
-        <% if current_user %>
-          <%= form_for [@product, @review] do |form| %>
-            <%= form.text_field :description, class: 'form-control' %>
-            <br>
-            <%= form.label :rating %>
-            <%= form.select :rating, [1,2,3,4,5], :prompt => 'Rate me!', class: 'form-control' %>
-            <%= form.submit %>
+        <% if @product.reviews.average(:rating) %>
+          <p>Average Rating:
+          <% @product.reviews.average(:rating).to_i.times do |i| %>
+            <%= fa_icon "star" %>
           <% end %>
-          <% else %>
-        <p>You must log in before you can add a review!</p>
+          </p>
         <% end %>
+        
+        <div class="form-group"> 
+        
+          <% if current_user %>
+            <%= form_for [@product, @review] do |form| %>
+              <%= form.text_field :description, class: 'form-control', placeholder: "Enter review here" %>
+              <br>
+              <%= form.label :rating %>
+              <%= form.select :rating, [1,2,3,4,5], :prompt => 'Rate me!', class: 'form-control' %>
+              <%= form.submit %>
+            <% end %>
+            
+          <% else %>
+            <p>You must log in before you can add a review!</p>
+          <% end %>
+          
         </div>
-       <dd>
+        
+        <dd>
           <% @product.reviews.order('updated_at DESC').each do |review| %>
             <%= render partial: 'products/review', locals: { review:review }  %>
           <% end %>          
-       </dd>
-       
-    
+        </dd> 
+        
       </div>
      
     </div>
