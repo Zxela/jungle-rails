@@ -26,3 +26,25 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
 * PostgreSQL 9.x
 * Stripe
+
+## Final Product
+
+### Landing Page
+
+!["Home Page"](https://github.com/Zxela/jungle/blob/master/docs/home.png)
+
+### Your Cart
+
+!["Your Cart"](https://github.com/Zxela/jungle/blob/master/docs/cart.png)
+
+### Admin: Categories Page
+
+!["Admin Categories Page"](https://github.com/Zxela/jungle/blob/master/docs/admincat.png)
+
+### Admin: New Category
+
+!["Admin: New Category"](https://github.com/Zxela/jungle/blob/master/docs/adminnewcat.png)
+
+### Admin: Stripe Payment
+
+!["Admin: Stripe Payment"](https://github.com/Zxela/jungle/blob/master/docs/stripe.png)
