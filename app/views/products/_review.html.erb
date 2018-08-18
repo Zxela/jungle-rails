@@ -1,0 +1,22 @@
+  <tr>
+    <td>
+      <h4><%= review.user.name %></h4>
+      <br>
+      <p><%= review.description %></p>
+    </td>
+     <td>
+     <% if review.rating %>
+      <% review.rating.times do |i| %>
+      <%= fa_icon "star" %>
+      <% end %>
+     <% end %>
+    </td>
+    <td>
+    <p><%= review.updated_at %></p>
+    </td>
+    <td>
+    <%if current_user && current_user == review.user %>
+     <%= button_to "Delete", product_review_path(:id => review.id, :product_id => review.product_id, :action => :destroy), :method => :delete %>
+    <% end %>
+    </td>
+  </tr>
