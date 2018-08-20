@@ -29,7 +29,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="navbar-brand">
         <% if current_user %>
-          Signed in as <%= current_user.name %> </li><li> <%= link_to "Logout", '/logout' %>
+         <%= current_user.name %> </li><li> <%= link_to "Logout", '/logout' %>
         </li>
         <% else %>
         <li>
